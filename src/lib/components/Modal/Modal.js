@@ -2,6 +2,7 @@ import { FaTimes } from 'react-icons/fa';
 import React, { useEffect } from 'react';
 import ReactDom from 'react-dom';
 import 'lib/components/Modal/Modal.css';
+import Spinner from 'lib/components/Spinner/Spinner';
 
 function Modal({ 
     isShowing,
@@ -11,7 +12,8 @@ function Modal({
     addCloseOverlay,
     addCloseIcon,
     customClassName,
-    addButtonFooter,
+    addFooterButton,
+    spinner,
 }) {
     useEffect(() => {
         return window.addEventListener('keyup', (e) => {
@@ -60,7 +62,7 @@ function Modal({
                             {children}
                         </section>
                         <footer className={`modalFooter ${customClassName ? 'modalFooter-' + customClassName : ''}`}>
-                            {addButtonFooter
+                            {addFooterButton
                                 && (
                                     <button 
                                         className={`modalButton ${customClassName ? 'modalButton-' + customClassName : ''}`} 
@@ -76,7 +78,12 @@ function Modal({
             </div>    
         </>,
         document.getElementById('portal')
-    ) : '';
+    ) : spinner 
+    ? ReactDom.createPortal
+    (
+        <Spinner customClassName={customClassName}/>, document.getElementById('portal')
+    )
+    : null;
 };
 
 export default Modal;

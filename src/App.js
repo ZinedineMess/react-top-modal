@@ -1,13 +1,22 @@
-import React from 'react';
-import Modal from 'lib/components/Modal/Modal';
-import useModal from 'lib/utils/useModal';
 import 'App.css';
+import Modal from 'lib/components/Modal/Modal';
+import React from 'react';
+import useModal from 'lib/utils/useModal';
 
 function App() {
   const {isShowing : showClassicModal, toggle : toggleClassicModal} = useModal();
-  const {isShowing : showModalCloseEsc, toggle : toggleModalCloseEsc} = useModal();
-  const {isShowing : showModalCloseOverlay, toggle : toggleModalCloseOverlay} = useModal();
-  const {isShowing : showModalButtonFooter, toggle : toggleModalButtonFooter} = useModal();
+  const {isShowing : showModalWithCloseEsc, toggle : toggleModalWithCloseEsc} = useModal();
+  const {isShowing : showModalWithCloseOverlay, toggle : toggleModalWithCloseOverlay} = useModal();
+  const {isShowing : showModalWithFooterButton, toggle : toggleModalWithFooterButton} = useModal();
+  const {isShowing : showModalWithSpinner, toggle : toggleModalSpinner, isLoading: showSpinner, toggleSpinner} = useModal();
+
+  const spinnerTimer = () => {
+    toggleSpinner()
+
+    setTimeout(() => {
+      toggleModalSpinner()
+    }, 1000)
+}
 
   return (
     <>
@@ -22,10 +31,10 @@ function App() {
           <p>bla bla bla 1</p>
         </Modal>
 
-        <button type='submit' className='buttonDefault' onClick={toggleModalCloseEsc}>Modal (with closeEscape)</button>
+        <button type='submit' className='buttonDefault' onClick={toggleModalWithCloseEsc}>Modal (with closeEscape)</button>
         <Modal 
-          isShowing={showModalCloseEsc} 
-          hide={toggleModalCloseEsc} 
+          isShowing={showModalWithCloseEsc} 
+          hide={toggleModalWithCloseEsc} 
           addCloseIcon={true} 
           addCloseEscape={true}
         >
@@ -33,10 +42,10 @@ function App() {
           <p>bla bla bla 2</p>
         </Modal>
 
-        <button type='submit' className='buttonDefault' onClick={toggleModalCloseOverlay}>Modal (with closeOverlay)</button>
+        <button type='submit' className='buttonDefault' onClick={toggleModalWithCloseOverlay}>Modal (with closeOverlay)</button>
         <Modal 
-          isShowing={showModalCloseOverlay} 
-          hide={toggleModalCloseOverlay} 
+          isShowing={showModalWithCloseOverlay} 
+          hide={toggleModalWithCloseOverlay} 
           addCloseIcon={true} 
           addCloseOverlay={true}
         >
@@ -44,16 +53,29 @@ function App() {
           <p>bla bla bla 3</p>
         </Modal>
 
-        <button type='submit' className='buttonDefault' onClick={toggleModalButtonFooter}>Modal (with buttonFooter)</button>
+        <button type='submit' className='buttonDefault' onClick={toggleModalWithFooterButton}>Modal (with footerButton)</button>
         <Modal 
-        isShowing={showModalButtonFooter} 
-        hide={toggleModalButtonFooter} 
+        isShowing={showModalWithFooterButton} 
+        hide={toggleModalWithFooterButton} 
         addCloseIcon={false} 
         addCloseOverlay={true} 
-        addButtonFooter={true}
+        addFooterButton={true}
         >
           <h1>Hello, Modal 4 </h1>
           <p>bla bla bla 4</p>
+        </Modal>
+
+        <button type='submit' className='buttonDefault' onClick={spinnerTimer}>Modal (with loader after 1s)</button>
+        <Modal 
+          isShowing={showModalWithSpinner} 
+          hide={toggleModalSpinner} 
+          spinner={showSpinner}
+          addCloseIcon={false} 
+          addCloseOverlay={true} 
+          addFooterButton={true}
+        >
+          <h1>Hello, Modal 5 </h1>
+          <p>bla bla bla 5 </p>
         </Modal>
       </main>
     </>
