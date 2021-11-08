@@ -8,9 +8,9 @@ function App() {
 
   return (
     <>
-      <main className='salut'>
+      <main>
         <button type='submit' className='buttonDefault' onClick={toggle1}>Modal (with header)</button>
-        <Modal isShowing={show1} hide={toggle1} addCloseEscape={true} addCloseOverlay={true} addCloseIcon={true}>
+        <Modal isShowing={show1} hide={toggle1} addCloseEscape={true} addCloseOverlay={true} addCloseIcon={true} customClassName='customTest'>
           <h1>Hello, je suis un titre </h1>
           <p>bla bla bla</p>
         </Modal>

@@ -10,6 +10,7 @@ function Modal({
     addCloseEscape,
     addCloseOverlay,
     addCloseIcon,
+    customClassName,
 }) {
     useEffect(() => {
         return window.addEventListener('keyup', (e) => {
@@ -33,15 +34,15 @@ function Modal({
 
     return isShowing ? ReactDom.createPortal(
         <>
-            <div className='modalOverlay' onClick={addCloseOverlay ? closeModal : undefined}>
-                <div className='modalWrapper' >
-                    <aside className='modal'>
-                        <header className='modalHeader'>
+            <div className={`modalOverlay ${customClassName ? 'modalOverlay-' + customClassName : ''}`} onClick={addCloseOverlay ? closeModal : null}>
+                <div className={`modalWrapper ${customClassName ? 'modalWrapper-' + customClassName : ''}`}>
+                    <aside className={`modal ${customClassName ? 'modal-' + customClassName : ''}`}>
+                        <header className={`modalHeader ${customClassName ? 'modalHeader-' + customClassName : ''}`} >
                             {addCloseIcon 
                                 && (
                                     <button 
                                         aria-label='Close' 
-                                        className='modalCloseButton'
+                                        className={`modalCloseButton ${customClassName ? 'modalCloseButton-' + customClassName : ''}`}
                                         data-dismiss='modal' 
                                         onClick={hide}
                                         type='button' 
@@ -51,11 +52,13 @@ function Modal({
                                 )
                             }
                         </header>
-                        <section className='modalSection'>
+                        <section className={`modalSection ${customClassName ? 'modalSection-' + customClassName : ''}`}>
                             {children}
                         </section>
-                        <footer className='modalFooter'>
-                            <button className='modalButton' onClick={hide}>Close Modal</button>
+                        <footer className={`modalFooter ${customClassName ? 'modalFooter-' + customClassName : ''}`}>
+                            <button className={`modalButton ${customClassName ? 'modalButton-' + customClassName : ''}`} onClick={hide}>
+                                Close Modal
+                            </button>
                         </footer>
                     </aside>
                 </div>
