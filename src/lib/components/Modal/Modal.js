@@ -9,6 +9,7 @@ function Modal({
     children,
     addCloseEscape,
     addCloseOverlay,
+    addCloseIcon,
 }) {
     useEffect(() => {
         return window.addEventListener('keyup', (e) => {
@@ -36,15 +37,19 @@ function Modal({
                 <div className='modalWrapper' >
                     <aside className='modal'>
                         <header className='modalHeader'>
-                            <button 
-                                aria-label='Close' 
-                                className='modalCloseButton'
-                                data-dismiss='modal' 
-                                onClick={hide}
-                                type='button' 
-                            >
-                                <FaTimes/>
-                            </button>
+                            {addCloseIcon 
+                                && (
+                                    <button 
+                                        aria-label='Close' 
+                                        className='modalCloseButton'
+                                        data-dismiss='modal' 
+                                        onClick={hide}
+                                        type='button' 
+                                    >
+                                        <FaTimes/>
+                                    </button>
+                                )
+                            }
                         </header>
                         <section className='modalSection'>
                             {children}
