@@ -1,5 +1,5 @@
 import { FaTimes } from 'react-icons/fa';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDom from 'react-dom';
 import 'lib/components/Modal/Modal.css';
 
@@ -7,7 +7,28 @@ function Modal({
     isShowing,
     hide,
     children,
+    addCloseEscape,
 }) {
+    useEffect(() => {
+        return window.addEventListener('keyup', (e) => {
+            if (addCloseEscape) {
+                closeModalEvent(e);
+            }
+        });
+    });
+
+    const closeModal = () => {
+        if (isShowing) {
+            hide();
+        };
+    }
+
+    const closeModalEvent = e => {
+        if(e.key === 'Escape') {
+            closeModal();
+        };
+    }
+
     return isShowing ? ReactDom.createPortal(
         <>
             <div className='modalOverlay'>
