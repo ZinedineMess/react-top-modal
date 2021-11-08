@@ -11,6 +11,7 @@ function Modal({
     addCloseOverlay,
     addCloseIcon,
     customClassName,
+    addButtonFooter,
 }) {
     useEffect(() => {
         return window.addEventListener('keyup', (e) => {
@@ -34,7 +35,10 @@ function Modal({
 
     return isShowing ? ReactDom.createPortal(
         <>
-            <div className={`modalOverlay ${customClassName ? 'modalOverlay-' + customClassName : ''}`} onClick={addCloseOverlay ? closeModal : null}>
+            <div 
+                className={`modalOverlay ${customClassName ? 'modalOverlay-' + customClassName : ''}`} 
+                onClick={addCloseOverlay ? closeModal : null}
+            >
                 <div className={`modalWrapper ${customClassName ? 'modalWrapper-' + customClassName : ''}`}>
                     <aside className={`modal ${customClassName ? 'modal-' + customClassName : ''}`}>
                         <header className={`modalHeader ${customClassName ? 'modalHeader-' + customClassName : ''}`} >
@@ -56,9 +60,16 @@ function Modal({
                             {children}
                         </section>
                         <footer className={`modalFooter ${customClassName ? 'modalFooter-' + customClassName : ''}`}>
-                            <button className={`modalButton ${customClassName ? 'modalButton-' + customClassName : ''}`} onClick={hide}>
-                                Close Modal
-                            </button>
+                            {addButtonFooter
+                                && (
+                                    <button 
+                                        className={`modalButton ${customClassName ? 'modalButton-' + customClassName : ''}`} 
+                                        onClick={hide}
+                                    >
+                                        Close Modal
+                                    </button>
+                                )
+                            }
                         </footer>
                     </aside>
                 </div>
