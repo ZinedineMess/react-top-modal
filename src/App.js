@@ -10,7 +10,7 @@ function App() {
     <>
       <main className='salut'>
         <button type='submit' className='buttonDefault' onClick={toggle1}>Modal (with header)</button>
-        <Modal isShowing={show1} hide={toggle1} addCloseEscape={true}>
+        <Modal isShowing={show1} hide={toggle1} addCloseEscape={true} addCloseOverlay={true}>
           <h1>Hello, je suis un titre </h1>
           <p>bla bla bla</p>
         </Modal>

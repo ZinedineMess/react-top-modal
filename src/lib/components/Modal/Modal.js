@@ -8,6 +8,7 @@ function Modal({
     hide,
     children,
     addCloseEscape,
+    addCloseOverlay,
 }) {
     useEffect(() => {
         return window.addEventListener('keyup', (e) => {
@@ -31,7 +32,7 @@ function Modal({
 
     return isShowing ? ReactDom.createPortal(
         <>
-            <div className='modalOverlay'>
+            <div className='modalOverlay' onClick={addCloseOverlay ? closeModal : undefined}>
                 <div className='modalWrapper' >
                     <aside className='modal'>
                         <header className='modalHeader'>
