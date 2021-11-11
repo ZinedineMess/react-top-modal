@@ -11,13 +11,17 @@ const App = () => {
   const {isShowing : showModalWithSpinner, toggle : toggleModalSpinner, isLoading: showSpinner, toggleSpinner} = useModal();
   const {isShowing : showModalWithClassName, toggle : toggleModalWithClassName} = useModal();
 
+  /**
+   * Function allowing to display the loader during the indicated time
+   * @return {void}
+   */
   const spinnerTimer = () => {
     toggleSpinner();
 
     setTimeout(() => {
       toggleModalSpinner()
     }, 1000);
-}
+  };
 
   return (
     <>

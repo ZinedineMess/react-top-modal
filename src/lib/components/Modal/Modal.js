@@ -5,6 +5,19 @@ import React, { useEffect } from 'react';
 import ReactDom from 'react-dom';
 import Spinner from 'lib/components/Spinner/Spinner';
 
+/**
+ * React component allowing to create a modal with different customization parameters
+ * @param {bool} isShowing - Allows you to display the modal
+ * @param {func} hide - Allows you to remove the modal
+ * @param {array} children - Array containing the body of the modal
+ * @param {bool} addCloseEscape - Allows to add the functionality of modal closure using the 'Esc' key
+ * @param {bool} addCloseOverlay - Allows to add the functionality of modal closing by clicking on the overlay
+ * @param {bool} addCloseIcon - Allows to add or not the modal closing icon
+ * @param {string} customClassName - Allows you to customize the class name of each element
+ * @param {bool} addFooterButton - Allows to add or not a button present in the footer of the modal
+ * @param {bool} spinner - Allows to add or not a spinner during the loading of the modal
+ * @return {void}
+ */
 const Modal = ({ 
     isShowing,
     hide,
@@ -24,12 +37,21 @@ const Modal = ({
         });
     });
 
+    /**
+     * Function allowing to close the modal if it is present on the screen
+     * @return {void}
+     */
     const closeModal = () => {
         if (isShowing) {
             hide();
         };
     };
 
+    /**
+     * Function used to close the modal when the Esc key is clicked
+     * @param {event} e
+     * @return {void}
+     */
     const closeModalEvent = e => {
         if(e.key === 'Escape') {
             closeModal();
