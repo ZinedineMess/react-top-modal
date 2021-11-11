@@ -4,7 +4,7 @@ import React from 'react';
 import useModal from 'lib/utils/useModal';
 
 const App = () => {
-  const {isShowing : showClassicModal, toggle : toggleClassicModal} = useModal();
+  const {isShowing : showModal, toggle : toggleModal} = useModal();
   const {isShowing : showModalWithCloseEsc, toggle : toggleModalWithCloseEsc} = useModal();
   const {isShowing : showModalWithCloseOverlay, toggle : toggleModalWithCloseOverlay} = useModal();
   const {isShowing : showModalWithFooterButton, toggle : toggleModalWithFooterButton} = useModal();
@@ -22,10 +22,10 @@ const App = () => {
   return (
     <>
       <main>
-        <button type='submit' className='buttonDefault' onClick={toggleClassicModal}>Modal (classic Modal)</button>
+        <button type='submit' className='buttonDefault' onClick={toggleModal}>Modal (classic Modal)</button>
         <Modal 
-          isShowing={showClassicModal} 
-          hide={toggleClassicModal} 
+          isShowing={showModal} 
+          hide={toggleModal} 
           addCloseIcon={true}
         >
           <h1>Hello, Modal 1 </h1>
@@ -88,7 +88,7 @@ const App = () => {
         addFooterButton={true}
         customClassName='custom'
         >
-          <h1>Hello, Modal 5 </h1>
+          <h1>Hello, Modal 6 </h1>
           <p>bla bla bla 6</p>
         </Modal>
       </main>

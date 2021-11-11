@@ -87,6 +87,15 @@ const Modal = ({
     : null;
 };
 
+Modal.defaultProps = {
+    isShowing: false,
+    addCloseEscape: false,
+    addCloseOverlay: false,
+    addCloseIcon: true,
+    addFooterButton: false,
+    spinner: false,
+};
+
 Modal.propTypes = {
     isShowing: PropTypes.bool.isRequired,
     hide: PropTypes.func.isRequired,
