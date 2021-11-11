@@ -3,19 +3,20 @@ import Modal from 'lib/components/Modal/Modal';
 import React from 'react';
 import useModal from 'lib/utils/useModal';
 
-function App() {
+const App = () => {
   const {isShowing : showClassicModal, toggle : toggleClassicModal} = useModal();
   const {isShowing : showModalWithCloseEsc, toggle : toggleModalWithCloseEsc} = useModal();
   const {isShowing : showModalWithCloseOverlay, toggle : toggleModalWithCloseOverlay} = useModal();
   const {isShowing : showModalWithFooterButton, toggle : toggleModalWithFooterButton} = useModal();
   const {isShowing : showModalWithSpinner, toggle : toggleModalSpinner, isLoading: showSpinner, toggleSpinner} = useModal();
+  const {isShowing : showModalWithClassName, toggle : toggleModalWithClassName} = useModal();
 
   const spinnerTimer = () => {
-    toggleSpinner()
+    toggleSpinner();
 
     setTimeout(() => {
       toggleModalSpinner()
-    }, 1000)
+    }, 1000);
 }
 
   return (
@@ -77,9 +78,22 @@ function App() {
           <h1>Hello, Modal 5 </h1>
           <p>bla bla bla 5 </p>
         </Modal>
+
+        <button type='submit' className='buttonDefault' onClick={toggleModalWithClassName}>Modal (with customClassName)</button>
+        <Modal 
+        isShowing={showModalWithClassName} 
+        hide={toggleModalWithClassName} 
+        addCloseIcon={false} 
+        addCloseOverlay={true} 
+        addFooterButton={true}
+        customClassName='custom'
+        >
+          <h1>Hello, Modal 5 </h1>
+          <p>bla bla bla 6</p>
+        </Modal>
       </main>
     </>
   );
-}
+};
 
 export default App;

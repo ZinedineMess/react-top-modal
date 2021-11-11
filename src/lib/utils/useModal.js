@@ -10,19 +10,19 @@ const useModal = () => {
         setIsShowing(!isShowing);
         if (!isShowing) {
             setIsLoading(false);
-        }
-    }
+        };
+    };
 
     const toggleSpinner = () => {
         setIsLoading(!isLoading);
-    }
+    };
 
     return {
         isShowing,
         toggle,
         isLoading,
         toggleSpinner
-    }
+    };
 };
 
 export default useModal;

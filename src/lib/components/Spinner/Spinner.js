@@ -1,10 +1,11 @@
-import React from 'react';
 import 'lib/components/Spinner/Spinner.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-const Spinner = (props) => {
+const Spinner = props => {
     return (
         <div className={`modalOverlay ${props.customClassName ? 'modalOverlay-' + props.customClassName : ''}`}> 
-            <div 
+            <aside 
                 className={`modalWrapper ${props.customClassName ? 'modalWrapper-' + props.customClassName : ''}`}
                 aria-modal 
                 aria-hidden 
@@ -16,9 +17,13 @@ const Spinner = (props) => {
                         <div className={`spinner ${props.customClassName ? 'loader-' + props.customClassName : ''}`}></div>
                     </article>
                 </section>
-            </div>
+            </aside>
         </div>
     );
 }
+
+Spinner.propTypes = {
+    customClassName: PropTypes.string,
+};
 
 export default Spinner;
