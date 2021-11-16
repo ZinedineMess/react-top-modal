@@ -1,4 +1,4 @@
-import Modal from 'lib/components/Modal/Modal';
-import useModal from 'lib/utils/useModal';
+import Modal from './components/Modal/Modal';
+import useModal from './utils/useModal';
 
 export { Modal, useModal };

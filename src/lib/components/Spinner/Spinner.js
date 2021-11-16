@@ -1,4 +1,4 @@
-import 'lib/components/Spinner/Spinner.css';
+import './Spinner.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 

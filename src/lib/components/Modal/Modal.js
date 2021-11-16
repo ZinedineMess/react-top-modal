@@ -1,9 +1,9 @@
 import { FaTimes } from 'react-icons/fa';
-import 'lib/components/Modal/Modal.css';
+import './Modal.css';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import ReactDom from 'react-dom';
-import Spinner from 'lib/components/Spinner/Spinner';
+import Spinner from '../Spinner/Spinner';
 
 /**
  * React component allowing to create a modal with different customization parameters
