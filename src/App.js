@@ -19,7 +19,7 @@ const App = () => {
     toggleSpinner();
 
     setTimeout(() => {
-      toggleModalSpinner()
+      toggleModalSpinner();
     }, 1000);
   };
 
@@ -95,6 +95,7 @@ const App = () => {
           <h1>Hello, Modal 6 </h1>
           <p>bla bla bla 6</p>
         </Modal>
+        
       </main>
     </>
   );

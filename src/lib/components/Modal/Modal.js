@@ -19,15 +19,7 @@ import Spinner from 'lib/components/Spinner/Spinner';
  * @return {void}
  */
 const Modal = ({ 
-    isShowing,
-    hide,
-    children,
-    addCloseEscape,
-    addCloseOverlay,
-    addCloseIcon,
-    customClassName,
-    addFooterButton,
-    spinner,
+    isShowing, hide, children, addCloseEscape, addCloseOverlay, addCloseIcon, customClassName, addFooterButton, spinner,
 }) => {
     useEffect(() => {
         return window.addEventListener('keyup', (e) => {
@@ -59,7 +51,7 @@ const Modal = ({
     };
 
     return isShowing ? ReactDom.createPortal(
-        <>
+        <div>
             <div 
                 className={`modalOverlay ${customClassName ? 'modalOverlay-' + customClassName : ''}`} 
                 onClick={addCloseOverlay ? closeModal : null}
@@ -99,7 +91,7 @@ const Modal = ({
                     </section>
                 </aside>
             </div>    
-        </>,
+        </div>,
         document.getElementById('portal')
     ) : spinner 
     ? ReactDom.createPortal
