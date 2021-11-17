@@ -1,3 +1,3 @@
-'use strict';
+"use strict";
 
-require('@testing-library/jest-dom');
+require("@testing-library/jest-dom");
