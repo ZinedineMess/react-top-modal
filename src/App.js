@@ -3,19 +3,7 @@ import React from 'react';
 import useModal from './lib/utils/useModal';
 
 const App = () => {
-  const { modalOpen, openModal, closeModal, isLoading, toggleSpinner } = useModal();
-
-  /**
-   * Function allowing to display the loader during the indicated time
-   * @return {void}
-   */
-    const spinnerTimer = () => {
-      toggleSpinner();
-  
-      setTimeout(() => {
-        openModal('modal-three');
-      }, 1000);
-    };
+  const { modalOpen, openModal, closeModal } = useModal();
 
   return (
       <main>

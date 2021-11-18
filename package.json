@@ -1,11 +1,11 @@
 {
   "name": "react-top-modal",
   "author": "Zinédine MESSAHEL <zinedinemessahel@hotmail.com>",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "private": false,
-  "main": "dist/index.jsx",
-  "module": "dist/index.jsx",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist",
     "README.md"
