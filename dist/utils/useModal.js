@@ -10,22 +10,22 @@ require("core-js/modules/web.dom-collections.iterator.js");
 var _react = require("react");
 
 const useModal = () => {
-  const [modalOpen, setModal] = (0, _react.useState)(false);
+  const [showModal, setShowModal] = (0, _react.useState)(false);
+  const [activeModal, setActiveModal] = (0, _react.useState)('');
   const [isLoading, setIsLoading] = (0, _react.useState)(false);
 
-  const openModal = event => {
-    const {
-      target: {
-        dataset: {
-          modal
-        }
-      }
-    } = event;
-    if (modal) setModal(modal);
+  const handleOpenModal = val => {
+    setActiveModal(val);
+    setShowModal(!showModal);
+
+    if (!showModal) {
+      setIsLoading(false);
+    }
   };
 
-  const closeModal = () => {
-    setModal('');
+  const handleCloseModal = () => {
+    setShowModal(!showModal);
+    setActiveModal('');
   };
 
   const toggleSpinner = () => {
@@ -33,9 +33,10 @@ const useModal = () => {
   };
 
   return {
-    modalOpen,
-    openModal,
-    closeModal,
+    showModal,
+    activeModal,
+    handleOpenModal,
+    handleCloseModal,
     isLoading,
     toggleSpinner
   };

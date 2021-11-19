@@ -27,8 +27,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /**
  * React component allowing to create a modal with different customization parameters
- * @param {bool} open - Allows you to display the modal
- * @param {func} closeFn - Function allows you to remove the modal
+ * @param {object} isOpen - Allows you to display the modal
+ * @param {bool} showModal - Allows you to display the modal
+ * @param {string} activeModal - Allows you to display the modal
+ * @param {func} close - Function allows you to remove the modal
  * @param {array} children - Array containing the body of the modal
  * @param {bool} addCloseEscape - Allows to add the functionality of modal closure using the 'Esc' key
  * @param {bool} addCloseOverlay - Allows to add the functionality of modal closing by clicking on the overlay
@@ -40,8 +42,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 const Modal = _ref => {
   let {
-    open = false,
-    closeFn = () => null,
+    isOpen = {
+      showModal: true,
+      activeModal: ''
+    },
+    close,
     children,
     addCloseEscape,
     addCloseOverlay,
@@ -63,8 +68,8 @@ const Modal = _ref => {
    */
 
   const closeModal = () => {
-    if (open) {
-      closeFn();
+    if (isOpen) {
+      close();
     }
 
     ;
@@ -84,7 +89,7 @@ const Modal = _ref => {
     ;
   };
 
-  return open ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement("div", {
+  return isOpen ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement("div", {
     className: "modalOverlay ".concat(customClassName ? 'modalOverlay-' + customClassName : ''),
     onClick: addCloseOverlay ? closeModal : null
   }, /*#__PURE__*/_react.default.createElement("aside", {
@@ -97,7 +102,7 @@ const Modal = _ref => {
     "aria-label": "Close",
     className: "modalCloseButton ".concat(customClassName ? 'modalCloseButton-' + customClassName : ''),
     "data-dismiss": "modal",
-    onClick: closeFn,
+    onClick: close,
     type: "button"
   }, /*#__PURE__*/_react.default.createElement(_fa.FaTimes, null))), /*#__PURE__*/_react.default.createElement("section", {
     className: "modalSection ".concat(customClassName ? 'modalSection-' + customClassName : '')
@@ -105,14 +110,13 @@ const Modal = _ref => {
     className: "modalFooter ".concat(customClassName ? 'modalFooter-' + customClassName : '')
   }, addFooterButton && /*#__PURE__*/_react.default.createElement("button", {
     className: "modalButton ".concat(customClassName ? 'modalButton-' + customClassName : ''),
-    onClick: closeFn
+    onClick: close
   }, "Close Modal"))))), document.getElementById('modal-root')) : spinner ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement(_Spinner.default, {
     customClassName: customClassName
   }), document.getElementById('root')) : null;
 };
 
 Modal.defaultProps = {
-  open: false,
   addCloseEscape: false,
   addCloseOverlay: false,
   addCloseIcon: true,
@@ -120,9 +124,8 @@ Modal.defaultProps = {
   spinner: false
 };
 Modal.propTypes = {
-  open: _propTypes.default.bool.isRequired,
-  closeFn: _propTypes.default.func.isRequired,
-  children: _propTypes.default.array,
+  close: _propTypes.default.func.isRequired,
+  children: _propTypes.default.object,
   addCloseEscape: _propTypes.default.bool,
   addCloseOverlay: _propTypes.default.bool,
   addCloseIcon: _propTypes.default.bool,

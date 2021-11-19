@@ -1,28 +1,29 @@
 import { useState } from 'react';
 
 const useModal = () => {
-    const [modalOpen, setModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [activeModal, setActiveModal] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    const openModal = event => {
-        const { target: { dataset: { modal } }} = event;
-        if (modal) setModal(modal);
+    const handleOpenModal = val => {
+        setActiveModal(val);
+        setShowModal(!showModal);
+        if (!showModal) {
+            setIsLoading(false);
+        }
     };
-
-    const closeModal = () => {
-        setModal('');
+    
+    const handleCloseModal = () => {
+        setShowModal(!showModal);
+        setActiveModal('');
     };
 
     const toggleSpinner = () => {
         setIsLoading(!isLoading);
-    };
+    }
 
     return {
-        modalOpen,
-        openModal,
-        closeModal,
-        isLoading,
-        toggleSpinner,
+        showModal, activeModal, handleOpenModal, handleCloseModal, isLoading, toggleSpinner
     };
 };
 
