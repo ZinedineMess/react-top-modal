@@ -111,9 +111,9 @@ const Modal = _ref => {
   }, addFooterButton && /*#__PURE__*/_react.default.createElement("button", {
     className: "modalButton ".concat(customClassName ? 'modalButton-' + customClassName : ''),
     onClick: close
-  }, "Close Modal"))))), document.getElementById('modal-root')) : spinner ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement(_Spinner.default, {
+  }, "Close Modal"))))), document.body) : spinner ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement(_Spinner.default, {
     customClassName: customClassName
-  }), document.getElementById('root')) : null;
+  }), document.body) : null;
 };
 
 Modal.defaultProps = {
