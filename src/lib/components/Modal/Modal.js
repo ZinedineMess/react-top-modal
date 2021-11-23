@@ -103,12 +103,12 @@ const Modal = ({
                     </footer>
                 </section>
             </aside>
-        </div>, document.getElementById('modal-root')
+        </div>, document.body
     )
     : spinner 
     ? ReactDOM.createPortal
 (
-    <Spinner customClassName={customClassName}/>, document.getElementById('root')
+    <Spinner customClassName={customClassName}/>, document.body
 )
 : null;
 };

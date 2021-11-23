@@ -9,24 +9,24 @@ const App = () => {
     toggleSpinner();
 
     setTimeout(() => {
-      handleOpenModal('spinner')
+      handleOpenModal('spinner');
     }, 1000);
-};
+  };
 
   return (
     <main>
       <button type='button' className='buttonDefault' onClick={() => handleOpenModal('classic')}>Modal (classic Modal)</button>
-      <Modal isOpen={ showModal && activeModal === 'classic' } close={handleCloseModal} addCloseIcon={true}>
+      <Modal isOpen={ showModal && activeModal === 'classic' } close={handleCloseModal}>
         <h2>classic</h2>
       </Modal>
 
       <button type='button' className='buttonDefault' onClick={() => handleOpenModal('closeEscape')}>Modal (with closeEscape)</button>
-      <Modal isOpen={ showModal && activeModal === 'closeEscape' } close={handleCloseModal} addCloseIcon={true} addCloseEscape={true}>
+      <Modal isOpen={ showModal && activeModal === 'closeEscape' } close={handleCloseModal} addCloseEscape={true}>
         <h2>closeEscape</h2>
       </Modal>
 
       <button type='button' className='buttonDefault' onClick={() => handleOpenModal('closeOverlay')}>Modal (with closeOverlay)</button>
-      <Modal isOpen={ showModal && activeModal === 'closeOverlay' } close={handleCloseModal} addCloseIcon={true} addCloseOverlay={true}>
+      <Modal isOpen={ showModal && activeModal === 'closeOverlay' } close={handleCloseModal} addCloseOverlay={true}>
         <h2>closeOverlay</h2>
       </Modal>
 
@@ -36,12 +36,12 @@ const App = () => {
       </Modal>
 
       <button type='button' className='buttonDefault' onClick={() => handleOpenModal('customClassName')}> Modal (with customClassName)</button>
-      <Modal isOpen={ showModal && activeModal === 'customClassName' } close={handleCloseModal} addCloseIcon={true} customClassName='custom'>
+      <Modal isOpen={ showModal && activeModal === 'customClassName' } close={handleCloseModal} customClassName='custom'>
         <h2>customClassName</h2>
       </Modal>
 
       <button type='button' className='buttonDefault' onClick={spinnerTimer}>Modal (with spinner 1s)</button>
-      <Modal isOpen={ showModal && activeModal === 'spinner' } close={handleCloseModal} addCloseIcon={true} spinner={isLoading}>
+      <Modal isOpen={ showModal && activeModal === 'spinner' } close={handleCloseModal} spinner={isLoading}>
         <h2>spinner</h2>
       </Modal>
     </main>
