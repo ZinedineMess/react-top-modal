@@ -22,7 +22,7 @@ import Spinner from '../Spinner/Spinner';
  */
 const Modal = ({
     isOpen={
-        showModal : true,
+        showModal : false,
         activeModal: '',
     },
     close,
@@ -123,7 +123,6 @@ Modal.defaultProps = {
 
 Modal.propTypes = {
     close: PropTypes.func.isRequired,
-    children: PropTypes.object,
     addCloseEscape: PropTypes.bool,
     addCloseOverlay: PropTypes.bool,
     addCloseIcon: PropTypes.bool,
