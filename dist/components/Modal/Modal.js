@@ -43,7 +43,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Modal = _ref => {
   let {
     isOpen = {
-      showModal: true,
+      showModal: false,
       activeModal: ''
     },
     close,
@@ -125,7 +125,6 @@ Modal.defaultProps = {
 };
 Modal.propTypes = {
   close: _propTypes.default.func.isRequired,
-  children: _propTypes.default.object,
   addCloseEscape: _propTypes.default.bool,
   addCloseOverlay: _propTypes.default.bool,
   addCloseIcon: _propTypes.default.bool,
