@@ -1,4 +1,6 @@
-![react-top-modal](https://res.cloudinary.com/dlpyn3wxf/image/upload/v1637856109/TopModal-2_rkzitk.png)
+![react-top-modal](https://res.cloudinary.com/dlpyn3wxf/image/upload/v1637856109/TopModal-2_rkzitk.png)      
+
+
 [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3e054716a72e537b3bf4/maintainability)](https://codeclimate.com/github/ZinedineMess/react-top-modal/maintainability)
 
