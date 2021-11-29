@@ -7,8 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _fa = require("react-icons/fa");
-
 require("./Modal.css");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -104,7 +102,9 @@ const Modal = _ref => {
     "data-dismiss": "modal",
     onClick: close,
     type: "button"
-  }, /*#__PURE__*/_react.default.createElement(_fa.FaTimes, null))), /*#__PURE__*/_react.default.createElement("section", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
+    className: "fas fa-times"
+  }))), /*#__PURE__*/_react.default.createElement("section", {
     className: "modalSection ".concat(customClassName ? 'modalSection-' + customClassName : '')
   }, children), /*#__PURE__*/_react.default.createElement("footer", {
     className: "modalFooter ".concat(customClassName ? 'modalFooter-' + customClassName : '')
