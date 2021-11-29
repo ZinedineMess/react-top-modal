@@ -1,7 +1,7 @@
 {
   "name": "react-top-modal",
   "author": "Zinédine MESSAHEL <zinedinemessahel@hotmail.com>",
-  "version": "0.1.8",
+  "version": "0.1.11",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
@@ -33,9 +33,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
     "react-scripts": "4.0.3",
-    "react-test-renderer": "^17.0.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -63,12 +61,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.12.1",
     "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@testing-library/dom": "^8.10.1",
-    "enzyme": "^3.11.0",
-    "enzyme-to-json": "^3.6.2"
+    "enzyme": "^3.11.0"
   }
 }

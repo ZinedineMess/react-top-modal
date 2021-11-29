@@ -1,4 +1,3 @@
-import { FaTimes } from 'react-icons/fa';
 import './Modal.css';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
@@ -81,7 +80,7 @@ const Modal = ({
                                     onClick={close}
                                     type='button' 
                                 >
-                                    <FaTimes/>
+                                    <i className="fas fa-times"></i>
                                 </button>
                             )
                         }
