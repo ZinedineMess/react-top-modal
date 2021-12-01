@@ -1,13 +1,180 @@
 ![react-top-modal](https://res.cloudinary.com/dlpyn3wxf/image/upload/v1637856109/TopModal-2_rkzitk.png)      
 
 
-[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3e054716a72e537b3bf4/maintainability)](https://codeclimate.com/github/ZinedineMess/react-top-modal/maintainability)
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)      [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)         [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)            
+[![Maintainability](https://api.codeclimate.com/v1/badges/3e054716a72e537b3bf4/maintainability)](https://codeclimate.com/github/ZinedineMess/react-top-modal/maintainability)   
 
 ## Get started
+### Examples
+* [react-top-modal (live demo)](https://silly-morse-f7ef99.netlify.app)
+* [react-top-modal (code demo)](https://github.com/ZinedineMess/react-top-modal/blob/main/src/App.js)
+
 ### Prerequisites for install
 - You need [Git](https://git-scm.com) to clone the repository
 - You need [Node](https://nodejs.org/en/) (v16.10.0) to run the npm commands
+
+### Installation
+* using NPM 
+`npm install react-top-modal `
+* using yarn
+`yarn install react-top-modal`
+
+### Basic Usage
+Import the Modal component and useModal Hook in your React components:
+``` js
+import {Modal, useModal} from 'react-top-modal';
+```
+
+After you've imported the Modal component and useModal Hook, you're ready to start using Modal inside your components! 🎉
+(isOpen & close are required)
+``` js
+import React from 'react';
+import Modal, { useModal } from 'react-top-modal';
+
+const App = () => {
+    const { showModal, activeModal, handleOpenModal, handleCloseModal } = useModal();
+
+    return (
+        <>
+            <button type='button' className='buttonDefault' onClick={() => handleOpenModal('classic')}>
+                Modal (classic Modal)
+            </button>
+            <Modal isOpen={ showModal && activeModal === 'classic' } close={handleCloseModal}>
+                <h2>classic</h2>
+            </Modal>
+        </>
+    );
+};
+
+export default App;
+```
+
+### Features
+* Add content in modal using createPortal 🚪
+* Close the modal with Esc key ⌨️
+* Close the modal on click overlay 🖱
+* Display a closing icon in the header ✖️
+* Customize the className of each element ⏺
+* Display a close button in the footer 🅱️
+* Add a spinner before the modal displays ♾
+
+### Props
+| Props | Type | Required | Default | Description |
+| :--------------- |:---------------:| :---------------:| :---------------:| -----:|
+| isOpen | Object | Required | - | An object containing two props, 'showModal' & 'activeModal', this object passed to modal allows to display it |
+| showModal | Bool | Required | False | State allows you to display the modal |
+| activeModal | String | Required | - | Add a string to identify which modal should be opened |
+| Close | Function | Required | - | Function allows you to remove the modal |
+| addCloseEscape | Bool | Optional | False | Allows to add the functionality of modal closure using the 'Esc' key |
+| addCloseOverlay | Bool | Optional | False | Allows to add the functionality of modal closing by clicking on the overlay |
+| addCloseIcon | Bool | Optional | True | If true, a closing icon will be displayed in the header of the modal |
+| customClassName | String | Optional | - | Allows you to customize the class name of each element |
+| addFooterButton | Bool | Optional | False | If true, a close button will be displayed in the footer of the modal |
+| spinner | Bool | Optional | False | Allows to add a loader which will be displayed during the loading of the modal |
+
+### Modal with close Esc
+You have the possibility to add the functionality of modal closure using the 'Esc' key by adding the props 'addCloseEsc' with the value 'true'.
+``` js
+import React from 'react';
+import Modal, { useModal } from 'react-top-modal';
+
+const App = () => {
+    const { showModal, activeModal, handleOpenModal, handleCloseModal } = useModal();
+
+    return (
+        <>
+            <button type='button' className='buttonDefault' onClick={() => handleOpenModal('closeEscape')}>
+                Modal (with closeEscape)
+            </button>
+            <Modal isOpen={ showModal && activeModal === 'closeEscape' } close={handleCloseModal} addCloseEscape={true}>
+                <h2>closeEscape</h2>
+            </Modal>
+        </>
+    );
+};
+
+export default App;
+```
+
+### Modal with Close Overlay
+You have the option to add the functionality of modal closing using the overlay click by adding the props 'addCloseOverlay' with the value 'true'.
+``` js
+import React from 'react';
+import Modal, { useModal } from 'react-top-modal';
+
+const App = () => {
+    const { showModal, activeModal, handleOpenModal, handleCloseModal } = useModal();
+
+    return (
+        <>
+            <button type='button' className='buttonDefault' onClick={() => handleOpenModal('closeOverlay')}>
+                Modal (with closeOverlay)
+            </button>
+            <Modal isOpen={ showModal && activeModal === 'closeOverlay' } close={handleCloseModal} addCloseOverlay={true}>
+                <h2>closeOverlay</h2>
+            </Modal>
+        </>
+    );
+};
+
+export default App;
+```
+
+### Modal with footerButton
+You have the possibility to add a close button in the footer by adding the props 'addFooterButton' with the value 'true'.
+``` js
+import React from 'react';
+import Modal, { useModal } from 'react-top-modal';
+
+const App = () => {
+    const { showModal, activeModal, handleOpenModal, handleCloseModal } = useModal();
+
+    return (
+        <>
+            <button type='button' className='buttonDefault' onClick={() => handleOpenModal('footerButton')}>
+                Modal (with footerButton)
+            </button>
+            <Modal isOpen={ showModal && activeModal === 'footerButton' } close={handleCloseModal} addFooterButton={true} addCloseIcon={false}>
+                <h2>footerButton</h2>
+            </Modal>
+        </>
+    );
+};
+
+export default App;
+```
+
+### Modal with Spinner
+You have the option to add a spinner when you expect an asynchronous function.
+Launch the spinner, the toggle will automatically close it and make the modal appear once your data has been recovered.
+``` js
+import React from 'react';
+import Modal, { useModal } from 'react-top-modal';
+
+const App = () => {
+    const { showModal, activeModal, handleOpenModal, handleCloseModal, isLoading, toggleSpinner } = useModal();
+
+    const spinnerTimer = () => {
+        toggleSpinner();
+    
+        setTimeout(() => {
+            handleOpenModal('spinner');
+        }, 1000);
+    };
+    return (
+        <>
+            <button type='button' className='buttonDefault' onClick={spinnerTimer}>
+                Modal (with spinner 1s)
+            </button>
+            <Modal isOpen={ showModal && activeModal === 'spinner' } close={handleCloseModal} spinner={isLoading}>
+                <h2>spinner</h2>
+            </Modal>
+        </>
+    );
+};
+
+export default App;
+```
 
 ### Dependencies
 * [@testing-library/jest-dom](https://github.com/testing-library/jest-dom#installation): v5.15.0, 
@@ -18,117 +185,9 @@
 * [prop-types](https://www.npmjs.com/package/prop-types): v15.7.2,
 * [react](https://reactjs.org): v17.0.2,
 * [react-dom](https://www.npmjs.com/package/react-dom): v17.0.2,
-* [react-icons](https://www.npmjs.com/package/react-icons): v4.3.1,
 * [react-scripts](https://www.npmjs.com/package/react-scripts): v4.0.3,
 * [react-test-renderer](https://www.npmjs.com/package/react-test-renderer): v17.0.2,
 
-### Installation
-* using NPM 
-`npm install react-top-modal `
-* using yarn
-`yarn install react-top-modal`
-
-### Features
-* Modal portal
-* Close the modal with Esc key,
-* Close the modal on click overlay,
-* Add or not a close Icon to close modal,
-* Customize className,
-* Add or not a footer Button to close modal,
-* Add or not a spinner before the modal displays
-
-### Props
-| Props | Type | Required? | Default | Description |
-| :--------------- |:---------------:| :---------------:| :---------------:| -----:|
-| isOpen | Object | Yes | - | If true, display the modal, otherwise remove the modal |
-| showModal | Bool | Yes | False | State allows you to display the modal |
-| activeModal | String | Yes | - | Add a string to identify which modal should be opened |
-| Close | Function | Yes | - | Function allows you to remove the modal |
-| addCloseEscape | Bool | No | False | Allows to add the functionality of modal closure using the 'Esc' key |
-| addCloseOverlay | Bool | No | False | Allows to add the functionality of modal closing by clicking on the overlay |
-| addCloseIcon | Bool | No | True | Allows to add or not the modal closing icon |
-| customClassName | String | No | - | Allows you to customize the class name of each element |
-| addFooterButton | Bool | No | False | Allows to add or not a button present in the footer of the modal |
-| spinner | Bool | No | False | Allows to add or not a spinner during the loading of the modal |
-
-## How to use 
-### import modal and useModal
-``` php
-import {Modal, useModal} from 'react-top-modal';
-```
-
-### useModal
-``` php
-const { showModal, activeModal, handleOpenModal, handleCloseModal } = useModal();
-```
-
-### Button
-``` php
-<button type='button' className='buttonDefault' onClick={() => handleOpenModal('classic')}>Modal (classic Modal)</button>
-```
-
-### Modal
-```
-<Modal isOpen={ showModal && activeModal === 'classic' } close={handleCloseModal}>
-	<h2>classic</h2>
-</Modal>
-```
-
-![Modal](https://res.cloudinary.com/dlpyn3wxf/image/upload/v1637850942/Capture_d_%C3%A9cran_2021-11-25_%C3%A0_15.33.41_nlbbbw.png)
-
-### add Close Esc
-```
-<button type='button' className='buttonDefault' onClick={() => handleOpenModal('closeEscape')}>
-    Modal (with closeEscape)
-</button>
-<Modal isOpen={ showModal && activeModal === 'closeEscape' } close={handleCloseModal} addCloseEscape={true}>
-    <h2>closeEscape</h2>
-</Modal>
-```
-
-### add Close Overlay
-```
-<button type='button' className='buttonDefault' onClick={() => handleOpenModal('closeOverlay')}>
-    Modal (with closeOverlay)
-</button>
-<Modal isOpen={ showModal && activeModal === 'closeOverlay' } close={handleCloseModal} addCloseOverlay={true}>
-    <h2>closeOverlay</h2>
-</Modal>
-```
-
-### add footerButton
-```
-<button type='button' className='buttonDefault' onClick={() => handleOpenModal('footerButton')}>
-    Modal (with footerButton)
-</button>
-<Modal isOpen={ showModal && activeModal === 'footerButton' } close={handleCloseModal} addFooterButton={true} addCloseIcon={false}>
-    <h2>footerButton</h2>
-</Modal>
-```
-
-![footerButton](https://res.cloudinary.com/dlpyn3wxf/image/upload/v1637850942/Capture_d_%C3%A9cran_2021-11-25_%C3%A0_15.34.02_fumcqb.png)
-
-### Customize className
-```
-<button type='button' className='buttonDefault' onClick={() => handleOpenModal('customClassName')}>
-    Modal (with customClassName)
-</button>
-<Modal isOpen={ showModal && activeModal === 'customClassName' } close={handleCloseModal} customClassName='custom'>
-    <h2>customClassName</h2>
-</Modal>
-```
-
-### add Spinner
-```
-<button type='button' className='buttonDefault' onClick={spinnerTimer}>
-    Modal (with spinner 1s)
-</button>
-<Modal isOpen={ showModal && activeModal === 'spinner' } close={handleCloseModal} spinner={isLoading}>
-    <h2>spinner</h2>
-</Modal>
-```
-
-![spinner](https://res.cloudinary.com/dlpyn3wxf/image/upload/v1637850942/Capture_d_%C3%A9cran_2021-11-25_%C3%A0_15.34.26_b8fect.png)
 
 ## Auteur   
 * [Zinédine MESSAHEL](https://github.com/ZinedineMess)   
