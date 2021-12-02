@@ -93,7 +93,8 @@ const Modal = _ref => {
   }, /*#__PURE__*/_react.default.createElement("aside", {
     className: "modalWrapper ".concat(customClassName ? 'modalWrapper-' + customClassName : '')
   }, /*#__PURE__*/_react.default.createElement("section", {
-    className: "modal ".concat(customClassName ? 'modal-' + customClassName : '')
+    className: "modal ".concat(customClassName ? 'modal-' + customClassName : ''),
+    onClick: e => e.stopPropagation()
   }, /*#__PURE__*/_react.default.createElement("header", {
     className: "modalHeader ".concat(customClassName ? 'modalHeader-' + customClassName : '')
   }, addCloseIcon && /*#__PURE__*/_react.default.createElement("button", {

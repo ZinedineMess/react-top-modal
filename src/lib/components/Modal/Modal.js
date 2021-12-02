@@ -68,8 +68,11 @@ const Modal = ({
             className={`modalOverlay ${customClassName ? 'modalOverlay-' + customClassName : ''}`} 
             onClick={addCloseOverlay ? closeModal : null}
         >
-            <aside className={`modalWrapper ${customClassName ? 'modalWrapper-' + customClassName : ''}`}>
-                <section className={`modal ${customClassName ? 'modal-' + customClassName : ''}`}>
+            <aside className={`modalWrapper ${customClassName ? 'modalWrapper-' + customClassName : ''}`} >
+                <section 
+                    className={`modal ${customClassName ? 'modal-' + customClassName : ''}`} 
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <header className={`modalHeader ${customClassName ? 'modalHeader-' + customClassName : ''}`} >
                         {addCloseIcon 
                             && (
