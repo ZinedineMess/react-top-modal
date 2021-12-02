@@ -15,10 +15,10 @@
 - You need [Node](https://nodejs.org/en/) (v16.10.0) to run the npm commands
 
 ### Installation
-* using NPM 
-` $ npm install react-top-modal `
-* using yarn
-`$ yarn install react-top-modal`
+* using NPM       
+` $ npm install react-top-modal `      
+* using yarn      
+`$ yarn install react-top-modal`      
 
 Link to access the package [here](https://www.npmjs.com/package/react-top-modal)      
 
