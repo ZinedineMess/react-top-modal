@@ -7,7 +7,7 @@
 ## Get started
 
 ### Examples
-* [Live Demo](https://silly-morse-f7ef99.netlify.app)
+* [Live Demo](https://react-top-modal.netlify.app)
 * [Code Example](https://github.com/ZinedineMess/react-top-modal/blob/main/src/App.js)
 
 ### Prerequisites for install

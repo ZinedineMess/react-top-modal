@@ -1,7 +1,7 @@
 {
   "name": "react-top-modal",
   "author": "Zinédine MESSAHEL",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "React component to easily create customizable modals",
   "license": "MIT",
   "private": false,
@@ -11,7 +11,7 @@
     "dist",
     "README.md"
   ],
-  "homepage": "https://silly-morse-f7ef99.netlify.app",
+  "homepage": "https://react-top-modal.netlify.app",
   "keywords": [
     "react",
     "react-component",
@@ -41,6 +41,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "build-front-end": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
